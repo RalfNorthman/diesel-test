@@ -1,0 +1,8 @@
+[package]
+name = "diesel_mini"
+version = "0.1.0"
+authors = ["Ralf Northman <ralf.northman@bredband.net>"]
+
+[dependencies]
+diesel = { version = "1.3.3", features = ["mysql"] }
+dotenv = "0.13.0"
