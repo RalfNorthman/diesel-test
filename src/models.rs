@@ -11,9 +11,9 @@ pub struct Measurement {
 
 #[derive(Insertable)]
 #[table_name="measurements"]
-pub struct NewMeasurement {
+pub struct NewMeasurement<'a> {
     pub temperature: f64,
     pub humidity: f64,
     pub pressure: f64,
-    pub comment: Option<String>,
+    pub comment: Option<&'a str>,
 }
