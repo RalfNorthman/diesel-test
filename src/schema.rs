@@ -1,8 +1,9 @@
 table! {
     measurements (id) {
         id -> Unsigned<Bigint>,
-        temp_celsius -> Double,
+        temperature -> Double,
         humidity -> Double,
+        pressure -> Double,
         comment -> Nullable<Tinytext>,
     }
 }
