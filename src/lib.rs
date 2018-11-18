@@ -1,15 +1,15 @@
-pub mod schema;
 pub mod models;
+pub mod schema;
 
 #[macro_use]
 extern crate diesel;
 extern crate dotenv;
 
-use diesel::prelude::*;
+use self::models::{Measurement, NewMeasurement};
 use diesel::mysql::MysqlConnection;
+use diesel::prelude::*;
 use dotenv::dotenv;
 use std::env;
-use self::models::{Measurement, NewMeasurement};
 
 pub fn establish_connection() -> MysqlConnection {
     dotenv().ok();
@@ -21,13 +21,12 @@ pub fn establish_connection() -> MysqlConnection {
 }
 
 pub fn create_measurement<'a>(
-    conn: &MysqlConnection, 
+    conn: &MysqlConnection,
     temperature: f64,
     humidity: f64,
     pressure: f64,
-    comment: Option<&'a str>
-    ) -> QueryResult<usize> {
-
+    comment: Option<&'a str>,
+) -> QueryResult<usize> {
     use schema::measurements;
 
     let new_measurement = NewMeasurement {

@@ -10,7 +10,7 @@ pub struct Measurement {
 }
 
 #[derive(Insertable)]
-#[table_name="measurements"]
+#[table_name = "measurements"]
 pub struct NewMeasurement<'a> {
     pub temperature: f64,
     pub humidity: f64,
