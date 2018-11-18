@@ -19,9 +19,11 @@ fn insert_measurement(conn: &MysqlConnection) {
 
     let mut floats: Vec<f64> = Vec::with_capacity(3);
 
-    while floats[..].len() < 3 {
-        println!("Please write temperature, humidity and pressure");
-        println!("(separated by spaces):");
+    while floats.len() < 3 {
+        println!(
+            "Please write temperature, humidity and pressure \
+             (separated by spaces):"
+        );
         let mut buffer = String::new();
         let parser = |x: &str| {
             x.parse::<f64>().expect("Aborting! Non-number entered!")
